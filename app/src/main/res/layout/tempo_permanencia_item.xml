@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="br.com.enterprise.mobileparking.domain.entity.TempoPermanencia"/>
+        <import type="br.com.enterprise.mobileparking.app.util.MoedaUtil"/>
+        <variable name="tempoPermanencia" type="TempoPermanencia"/>
+        <variable name="moedaUtil" type="MoedaUtil"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card" app:cardBackgroundColor="@android:color/holo_blue_dark">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                <TextView
+                        android:text="-"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtTraco"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" android:textSize="24sp"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtMinutos" app:layout_constraintEnd_toStartOf="@+id/txtTraco"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="15 minutos"
+                        android:text="@{tempoPermanencia.tempo + ` minutos`}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0" android:layout_marginEnd="8dp"
+                        android:textSize="18sp" android:textColor="@android:color/white"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/valor"
+                        app:layout_constraintEnd_toEndOf="parent" tools:text="R$ 4,00"
+                        app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@{moedaUtil.formataParaBrasileiro(tempoPermanencia.valor)}"
+                        app:layout_constraintStart_toEndOf="@+id/txtTraco"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginStart="8dp"
+                        android:textSize="18sp" android:textColor="@android:color/white"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
