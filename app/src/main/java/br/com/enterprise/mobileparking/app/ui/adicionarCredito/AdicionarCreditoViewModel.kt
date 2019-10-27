@@ -26,7 +26,8 @@ class AdicionarCreditoViewModel(
     fun adicionarCreditos() {
         doInBackground {
             try {
-                valor.get()?.let {  _adicionaCreditos.postValue(repository.adicionaCredito("thiago", BigDecimal(it))) }
+                valor.get()?.let {  _adicionaCreditos.postValue(repository.adicionaCredito("thiago",
+                    BigDecimal(it.replace(",", ".")))) }
                     ?: throw Throwable("Valor deve ser informado!")
             } catch (e: Throwable) {
                 _erro.postValue(e)
