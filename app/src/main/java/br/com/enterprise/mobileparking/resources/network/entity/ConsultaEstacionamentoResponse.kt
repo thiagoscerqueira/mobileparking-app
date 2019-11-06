@@ -17,7 +17,7 @@ fun ConsultaEstacionamentoResponse.toDomain(): Estacionamento {
     return Estacionamento(
         estacionamentoUsuarioId = this.estacionamentoUsuarioId,
         inicio = LocalDateTime.parse(this.inicio, DateTimeFormatter.ISO_LOCAL_DATE_TIME),
-        placaVeiculo = "GBX-2134",
+        placaVeiculo = "GDX-9999",
         tempoRestante = Duration.parse(this.tempoRestante)
     )
 }
