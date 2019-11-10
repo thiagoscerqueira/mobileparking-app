@@ -56,9 +56,8 @@
                 android:layout_marginTop="24dp"/>
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="0dp"
                 android:id="@+id/credito_valor" app:layout_constraintStart_toEndOf="@+id/credito_texto"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 android:textColor="@android:color/holo_green_dark"
@@ -68,7 +67,7 @@
                 android:text='@{moedaUtil.formataParaBrasileiro(buscarDadosUsuarioViewModel.usuario.saldoAtualizado)}'
                 android:visibility="@{safeUnbox(buscarDadosUsuarioViewModel.carregando) ? View.GONE : View.VISIBLE}"
                 android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/imgEstacionamento2"
-                app:layout_constraintVertical_bias="0.0"/>
+        />
         <TextView
                 android:text="Selecione o tempo de permanência"
                 android:layout_width="wrap_content"
